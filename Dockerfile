@@ -12,6 +12,8 @@ FROM base as deps
 
 RUN pnpm install
 
+RUN node scripts/copy-env.mjs --client --api
+
 FROM deps as api
 
 ENV NODE_ENV="production"
